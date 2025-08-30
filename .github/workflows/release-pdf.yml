@@ -1,0 +1,26 @@
+name: Upload PDF to Release
+
+on:
+  push:
+    tags:
+      - 'v*' # 只有推送类似 v1.0, v2.1-alpha 这样的标签时才会触发
+
+jobs:
+  upload-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 赋予写入 Release 的权限
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 如果你需要在工作流中用到 Git 历史，可以设置此项
+
+      - name: Upload PDF to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: | # 指定要上传的文件路径，确保此路径下的文件存在于你的仓库中
+            path/to/your/main.pdf # 请将此路径修改为你的 main.pdf 的实际路径
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 自动提供的 token
