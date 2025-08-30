@@ -1,0 +1,14 @@
+% \include{Preface}
+
+\pgfplotsloopcontinuetrue
+
+\foreach \i in {1,...,100}{%
+    \ifpgfplotsloopcontinue%
+        \IfFileExists{chapters/chapter\i.tex}{%
+            \include{chapters/chapter\i.tex}
+        }{%
+            \pgfplotsloopcontinuefalse
+        }\fi%
+}
+% 这里原本的判定是 chapter\i.tex, 改作 chapter/chapter\i.tex, 实践中发现 input 到父级目录后, 目录判断也要以最终载入点为主.
+% \endinput

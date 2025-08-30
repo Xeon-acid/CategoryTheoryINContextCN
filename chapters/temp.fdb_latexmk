@@ -1,0 +1,22 @@
+# Fdb version 4
+["xdvipdfmx"] 1756465398 "temp.xdv" "temp.pdf" "temp" 1756465398 0
+  "temp.xdv" 1756465398 492 034526d54ce69432201cc1e141c14d42 "xelatex"
+  (generated)
+  "temp.pdf"
+  (rewritten before read)
+["xelatex"] 1756465397 "temp.tex" "temp.xdv" "temp" 1756465398 0
+  "d:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty" 1691410818 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
+  "d:/texlive/2023/texmf-dist/tex/latex/base/article.cls" 1691411050 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "d:/texlive/2023/texmf-dist/tex/latex/base/size10.clo" 1691411050 8448 c33a4e1cb35cee9b33c2b21033b73e39 ""
+  "d:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd" 1691411050 2430 8418b3f1835e588625becbcac4dbce56 ""
+  "d:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def" 1691411017 32346 879686206fa618f4f5073ad4bd48feda ""
+  "d:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1691409862 40745 87bb86a62d462f93a1efc6b0c65c872e ""
+  "d:/texlive/2023/texmf-var/web2c/xetex/xelatex.fmt" 1691413524 8909584 890c66619bb38eb0bc675d2269ee091d ""
+  "d:/texlive/2023/texmf.cnf" 1691413312 713 e69b156964470283e0530f5060668171 ""
+  "temp.aux" 1756465398 32 3985256e7290058c681f74d7a3565a19 "xelatex"
+  "temp.tex" 1756465397 341 3bd3f53b0182cd6fba88b4c995b6c6c3 ""
+  (generated)
+  "temp.aux"
+  "temp.log"
+  "temp.xdv"
+  (rewritten before read)
