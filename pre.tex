@@ -9,6 +9,13 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{geometry}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfborder={0 0 0}
+}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
@@ -23,6 +30,7 @@
 \usepackage{footnote}
 \usepackage{enumitem}
 \usepackage{float}
+\RequirePackage{etoolbox}
 % \usepackage[mtpbbi]{mtpro2}
 % \usepackage[bbgreekl]{mathbbol}
 % \setmathfontface\mathbbgreek{Some Outline Greek Font}[Scale=MatchUppercase]
@@ -52,14 +60,15 @@
 \theoremstyle{definition}
 \newtheorem{definition}{定义}[chapter]
 \newtheorem{theorem}{定理}[chapter]
-\newtheorem{lemma}{引理}[chapter]
+
 \newtheorem{proposition}{命题}[chapter]
 \newtheorem{corollary}{推论}[chapter]
 % \theoremstyle{remark}
 \newtheorem{remark}{注解}[chapter]
 % \theoremstyle{definition}
 \newtheorem{example}{例}[chapter]
-
+\theoremstyle{plain}
+\newtheorem{lemma}{引理}[chapter]
 \newcommand{\squarebrace}[1]{「#1」}
 
 \RequirePackage{needspace}
@@ -89,7 +98,7 @@
 % }
 
 % \newcommand{\myref}[1]{\S\arabic{chapter}.\arabic{section}~\ref{#1}}
-\usepackage{refcount}
+% \usepackage{refcount}
 
 \newcommand{\chptref}[1]{\S\,\ref*{#1}}
 % \newcommand{\eqref}[1]{(\ref*{#1})}
@@ -102,7 +111,9 @@
 %  \foreach \x in \mylist {[\x]}
 
 % MARK: 定义运算符列表
-\def\DclrMthOprLst{Ext,Hom,Mor,Ob}
+\def\DclrMthOprLst{Ext,Hom,Mor,Ob,End,Aut}
+\DeclareMathOperator{\vP}{\Pi}
+
 \typeout{DclrMthOprLst defined}
 \foreach \x in \DclrMthOprLst {%
     \expandafter\global\expandafter\edef\csname\x\endcsname{%
@@ -115,13 +126,22 @@
 
 \usepackage{relsize}
 
-\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
 
 \renewcommand{\thedefinition}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
-\renewcommand{\theremark}{\protect\refstepcounter{definition}\arabic{chapter}.\arabic{section}.\arabic{definition}}
-\renewcommand{\theexample}{\protect\refstepcounter{definition}\arabic{chapter}.\arabic{section}.\arabic{definition}}
-% \renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
-% Removed problematic redefinition of remark environment
+\renewcommand{\theremark}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
+\renewcommand{\theexample}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
+\renewcommand{\thelemma}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
+
+\AtBeginEnvironment{example}{\protect\refstepcounter{definition}}
+\AtBeginEnvironment{remark}{\protect\refstepcounter{definition}}
+\AtBeginEnvironment{lemma}{\protect\refstepcounter{definition}}
+\AtBeginEnvironment{equation}{\protect\refstepcounter{definition}}
+
+\pretocmd{\section}{\setcounter{definition}{0}}
+
+
+
 
 % add hook front of \section, hook is : \clearpage
 \let\oldsection\section
@@ -207,3 +227,37 @@
 
 \newcommand\mathbbpdf[1]{\special{pdf:literal 1 Tr 0.3 w}#1\special{pdf:literal 0 Tr 0 w}}
 
+\newcounter{exercise}
+
+\newcommand{\Exercises}{%
+    \setcounter{exercise}{0}%
+    \vskip0ex\kern4ex{\textbf{习题.}}%
+}
+
+\newcommand{\exercise}[1]{\refstepcounter{exercise}\vspace{.5em}\par\noindent{}习题\kern.5ex\theexercise.\kern.5em#1}
+
+\def\theexercise{%
+    \arabic{chapter}.\arabic{section}.\roman{exercise}
+}
+
+\setCJKmainfont{SourceHanSerifSC}[
+    Path = C:/Users/angel/AppData/Local/Microsoft/Windows/Fonts/,
+    Extension = .otf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = SIMKAI,
+    BoldItalicFont = SIMKAI,
+    AutoFakeBold = true,
+    BoldFeatures = {FakeBold=1.5},
+    ItalicFeatures = {
+        Path = C:/Windows/Fonts/,
+        Extension = .ttf,
+        % FakeSlant=0.2
+    },
+    BoldItalicFeatures = {
+        Path = C:/Windows/Fonts/,
+        Extension = .ttf,
+        FakeBold=1.8  % 可以为粗斜体设置不同的粗体强度
+    }
+]
+\setmainfont{CMU Serif}
