@@ -44,6 +44,6 @@ jobs:
         body: |
           自动生成的 PDF 文档
           版本: ${{ github.ref_name }}
-          编译时间: ${{ utcnow() }}
+          编译时间: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
