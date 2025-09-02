@@ -22,7 +22,7 @@
 \end{equation}
 联系了起来.
 \par 为获得万有系数定理更泛用的构造, Eilenberg 和 Mac Lane 不得不用证明一些表以群扩张的 Abel 群同构, 其能够扩张至经由极限或余极限构造的空间. 诚则确然, 正因图 \eqref{Eq:0.Ext.Hn.Hom.0} 述同态皆\textit{自然}于拓扑空间间的连续映射.
-\par \squarebrace{自然}一词在数学家口中意味着\squarebrace{不依赖任选而定义}. 例如, 定义有限维向量空间 \(V\) 及其\textbf{对偶}间的同构, 即由从 \(V\) 至基域 \(\vmathbb k\) 的线性映射构成的向量空间, 依赖于基的选择; 又如, 存在从 \(V\) 至其双对偶间的同构, 其定义不依赖基: 故而仅后述之映射定义\textit{自然}.
+\par \squarebrace{自然}一词在数学家口中意味着\squarebrace{不依赖任选而定义}. 例如, 定义有限维向量空间 \(V\) 及其\textbf{对偶}间的同构, 即由从 \(V\) 至基域 \(\mathbb k\) 的线性映射构成的向量空间, 依赖于基的选择; 又如, 存在从 \(V\) 至其双对偶间的同构, 其定义不依赖基: 故而仅后述之映射定义\textit{自然}.
 \par 为证明其特定群同构族扩张至极限和余极限, Eilenberg 和 Mac Lane 设法给出非正式概念\squarebrace{自然性}在数学上精确的定义, 为此他们引入了\textit{自然变换}, 上述情形下 Abel 群的同态平行总和; 为描述自然变换的源与目标, 又引入了\textit{函子}\footnote{群论中, 函子与自然同构于 1942 年的一份文献 \cite{EM42b} 内有简短介绍.}; 而为普适定义函子的源和目标, 又引入\squarebrace{范畴}这一概念: 上述工作称以\squarebrace{自然等价的一般理论}\ref{EM45}, 在 1945 年发表, 是为范畴论的诞生日.
 \par 范畴与函子最开始作为辅助记号提出, 这是因为自然性这一概念确需精确定义, 而现在, 其本身亦足够有趣、足够重要. 范畴论提出数学对象研究时的一种不同视角, 即不再过分关注对象本身, 而把更多精力放在对象间的关系上. 函子能够翻译数学对象的一种形式到另一种形式, 应用更为直接, 例如, Brouwer 不动点定理翻译拓扑中似乎棘手的问题为代数中的平凡问题 (即 \(0\ne1\)), 这正是我们目前转向的主题.
 \par 范畴将于 \chptref{111} 以两种形式介绍: 其一作为宇宙分类数学对象, 其二其自身亦视作数学对象. 前者用于譬如定义更广义的\textit{同构}概念, 使其能够专门用于各式各样的数学对象. 后者则引出, 那些公理定义下, 范畴必自对偶.\footnote{确然如此, 对于射影平面几何, 其对偶性可确切述作公理化其结构的一阶逻辑定理.} 因此, 正如 \chptref{1212} 所探索的, 从那些公理开始, 对关于所有范畴的定理, 其任何证明均具一对偶证明于对偶定理, 这一对偶定理由称作\squarebrace{反转所有箭头}的句法过程得到.
@@ -31,7 +31,7 @@
 
 \section{抽象范畴与具体范畴}
 % MARK: 抽象具体范畴
-\says{为所有数学理论构建可能平台: 只要这个理论有\textit{名词}和\textit{动词}, 即对象和态射, 且对态射来说有明确的复合}{Barry Mazur, ``When is one thing equal to some other thing?''}{Maz08}
+\says{为所有数学理论构建可能平台: 只要这个理论有\textit{名词}和\textit{动词}, 即对象和态射, 且对态射来说有明确的复合, 那该理论则显然理应归类为范畴.}{Barry Mazur, ``When is one thing equal to some other thing?''}{Maz08}
 \begin{definition}\label{Def:Category}
     \textbf{范畴}为含有
         \begin{itemize}
@@ -66,13 +66,14 @@
         \item 拓扑空间范畴 \(\cat{Top}\) 以拓扑空间为对象, 连续函数为态射.
         \item \(\cat{Set}_*\) 和 \(\cat{Top}_*\) 以指定基点的集合或拓扑空间为对象, 保持基点的 (连续) 函数为态射.
         \item 群范畴 \(\cat{Group}\) 以群为对象, 群同态为态射. 此例赋予\squarebrace{态射}这一通用术语以抽象范畴的数据. 环范畴 \(\cat{Ring}\) 由交换幺环和环同态构成, 域范畴 \(\cat{Field}\) 由域和域同态构成, 皆有相近定义.
-        \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\vmathbb k\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_\vmathbb k\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_\mathbb Z\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
+        % \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\mathbbpdf k\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_\mathbbpdf k\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_\mathbb Z\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
+        \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\mathbbpdf k\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_{\mathbbpdf k}\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_{\mathbb Z}\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
         \item 图范畴 \(\cat{Graph}\) 以图为对象, 以图同态 (将顶点映到顶点, 边映到边, 同时保持连接关系的函数) 为态射. 另有有向图范畴 \(\cat{DirGraph}\), 以有向图为对象, 其边画作箭头, 而态射则为有向图同态, 即必保持边的方向.
         \item 流形范畴 \(\cat{Man}\) 以光滑流形 (即无穷阶可微) 为对象, 光滑映射为态射.
         \item 可测空间范畴 \(\cat{Mea}\) 以可测空间为对象, 可测函数为态射.
         \item 偏序集范畴 \(\cat{Poset}\) 以偏序集为对象, 保序函数为态射.
         \item \(\cat{Ch}_R\) 以 \(R\)--模的链复形为对象, 链同态为态射.
-        \item 对任意指配有常数、函数、关系符的字符集 \(\sigma\), 以及所有在 \(\sigma\) 相关的一阶语言中良构的语句, 构成集 \(\mathbb T\), 可有模型范畴 \(\cat{Model}_\mathbb T\), 其对象为\textit{模型} \(\mathbb T\) 的 \(\sigma\)--结构, 亦即配备了满足公理 \(\mathbb T\) 的相应常数、关系、函数的集合. 而态射即通常的保持指定常数、关系、函数的映射. 这一范畴的特例包括前述的 (iv), (v), (vi), (ix),~(x).
+        \item 对任意指配有常数、函数、关系符的字符集 \(\sigma\), 以及所有在 \(\sigma\) 相关的一阶语言中良构的语句, 构成集 \(\mathbb T\), 可有模型范畴 \(\cat{Model}_{\mathbb T}\), 其对象为\textit{模型} \(\mathbb T\) 的 \(\sigma\)--结构, 亦即配备了满足公理 \(\mathbb T\) 的相应常数、关系、函数的集合. 而态射即通常的保持指定常数、关系、函数的映射. 这一范畴的特例包括前述的 (iv), (v), (vi), (ix),~(x).
     \end{enumerate}
 \end{example}
 \par 上述即\textit{具体范畴 (concrete category)} 的全部例子, 即对象基于集合, 而态射为这些对象背后的集合间的函数, 尤其是\squarebrace{结构保持}态射. 具体范畴有一个更精确的定义, 于 \ref{114417} 给出. 此外, \squarebrace{抽象}范畴亦很广泛:
@@ -110,7 +111,7 @@
                 \end{tikzpicture}
             \end{center}
             \item 偏序集 \((\cat P,\le)\) (或更一般地说, 预序集) 可视作范畴. \(\cat P\) 的元素即范畴的对象, 而总存在唯一一个态射 \(x\to y\) 当且仅当 \(x\le y\). 偏序关系或者说预序关系 \(\le\) 的传递性蕴含所需态射复合的存在性, 自反性蕴含单位态射的存在性.
-            \item 特别地, 任意序数 \(\alpha=\{\beta|\beta<\alpha\}\) 均定义一个范畴, 其对象为那些比之小的序数. 例如, \(\vmathbb0\) 为无任何对象或态射的零范畴, \(\vmathbb1\) 为仅有一个对象且仅有单位态射的平凡范畴,\footnote{译注: 这里说仅含单位态射, 并非\squarebrace{自然}, 而仅为规定, 反例见前文 \(\cat BG\).}\ \(\vmathbb2\) 则为有两个对象, 同时除单位态射外有一个非单位态射的范畴, 传统上描摹作 \(0\to1\). \(\mathbbpdf{\upomega}\) 为\textit{由图}\[
+            \item 特别地, 任意序数 \(\alpha=\{\beta|\beta<\alpha\}\) 均定义一个范畴, 其对象为那些比之小的序数. 例如, \(\mathbbpdf0\) 为无任何对象或态射的零范畴, \(\mathbbpdf1\) 为仅有一个对象且仅有单位态射的平凡范畴,\footnote{译注: 这里说仅含单位态射, 并非\squarebrace{自然}, 而仅为规定, 反例见前文 \(\cat BG\).}\ \(\mathbbpdf2\) 则为有两个对象, 同时除单位态射外有一个非单位态射的范畴, 传统上描摹作 \(0\to1\). \(\mathbbpdf{\upomega}\) 为\textit{由图}\[
                 \begin{tikzcd}
                     0\ar[r]&1\ar[r]&2\ar[r]&3\ar[r]&\cdots
                 \end{tikzcd}    
@@ -172,7 +173,7 @@
     \ \par
     \begin{enumerate}[label=(\roman*)]
         \item \textbf{群}即仅一个对象的群胚.\footnote{这并非仅为示例, 亦是其定义.\footnotemark}\footnotetext{译注: 群 \(G\) 作为群胚, 唯一对象 \(*\), 态射类即 \(G=(\Hom(*,*),\circ)\), 其中 \(\circ\) 即态射复合, 易证封闭性、结合性、幺元存在 (即 \(1_*\))、逆元存在 (作为同构, 总存在逆态射). 另, \href{Sec:Functor}{函子} \(F\colon\cat BG\to\cat{Set}\) 恰好等价于 \(G\) 在 \(X\) 上的左作用, 将抽象对象 \(*\) 映到具体集合 \(X\).}
-        \item 给定空间 \(X\), 其\textbf{基本群胚 (fundamental groupoid)} \(\vP _1 X\) 作为范畴, 以 \(X\) 上的点为对象, 以路径的终点保持同伦类为态射.
+        \item 给定空间 \(X\), 其\textbf{基本群胚 (fundamental groupoid)} \(\Pi _1(X)\) 作为范畴, 以 \(X\) 上的点为对象, 以路径的终点保持同伦类为态射.
     \end{enumerate}
 \end{example}
 \par 范畴 \(\cat C\) 的\textbf{子范畴 (subcategory)} 定义作对象子总体与态射子总体, 使得任意限制进 \(\cat D\) 的态射均仍能在其中找到域与上域, 亦能找到所有必需的恒等态射, 以及所有必需的态射复合. 例如存在子范畴 \(\cat{CRing}\subset\cat\cat{Ring}\), 即交换幺环范畴. 上述两范畴均含于 \(\cat{Rng}\),  一般的环范畴.
@@ -184,26 +185,26 @@
 \end{proof}
 \par 举例比如 \(\cat{Iso}_{\rm iso}\), 有限集双射范畴, 正是有限集映射范畴 \(\cat{Fin}\) 的极大子群胚. 例 \ref{Expl:1.4.9} 会解释群胚何以视作自然数的范畴化, 这提供了一个有利环境, 用以证明初等算数律.
 \Exercises
-\exercise{
+\exercise\label{Exc:1.1.ii}{
     \ \vspace{-.5em}\begin{enumerate}[label=(\roman*)]
-        \item 考虑态射 \(f\colon x\to y\), 证明若存在态射对 \(g,h\colon y\rightrightarrows x\) 使得 \(gf=1_x\) 且 \(fh=_y\), 则 \(g=h\), 且 \(f\) 为同构.
+        \item 考虑态射 \(f\colon x\to y\), 证明若存在态射对 \(g,h\colon y\rightrightarrows x\) 使得 \(gf=1_x\) 且 \(fh=1_y\), 则 \(g=h\), 且 \(f\) 为同构.
         \item 证明同构最多拥有一个逆态射.
     \end{enumerate}
 }
 \exercise{
     令 \(\cat C\) 为范畴, 证明其同构总体定义了其一个子范畴, 即范畴 \(\cat C\) 内的\textbf{极大群胚}.
 }
-\exercise{
+\exercise\label{Exc:1.1.iii}{
     对任意范畴 \(\cat C\) 与任意对象 \(c\in\Ob\cat C\), 证明:
     \ \vspace{-.5em}\begin{enumerate}[label=(\roman*)]
         \item 有范畴 \(c/\cat C\), 对象为域为 \(c\) 的态射 \(f\colon c\to x\), 而从 \(f\colon c\to x\) 到 \(g\colon c\to y\) 的态射为上域间的映射 \(h\colon x\to y\), 使得三角图\[
-            \begin{tikzcd}[ampersand replacement=\&]
+            \begin{tikzcd}[ampersand replacement=\&, column sep=tiny]
                 \& c \ar[dl, "f"'] \ar[dr, "g"] \& \\
                 x \ar[rr, "h"] \& \& y
             \end{tikzcd}
         \]\textbf{交换}, 即 \(g=hf\).
         \item 有范畴 \(\cat C/c\), 对象为上域为 \(c\) 的态射 \(f\colon x\to c\), 而从 \(f\colon x\to c\) 到 \(g\colon y\to c\) 的态射为域间的映射 \(h\colon x\to y\), 使得三角图\[
-            \begin{tikzcd}[ampersand replacement=\&]
+            \begin{tikzcd}[ampersand replacement=\&, column sep=tiny]
                 x \ar[rr, "h"] \ar[dr, "f"'] \& \& y \ar[dl, "g"] \\
                 \& c \&
             \end{tikzcd}
@@ -212,6 +213,94 @@
     \end{enumerate}
     范畴 \(c/\cat C\) 和 \(\cat C/c\) 分别称作 \(\cat C\) 的\textbf{下切片范畴 (category under \(c\))}和\textbf{上切片范畴 (category over \(c\))}
 }
-%dot
 
-% ! TODO: 环境穿透的脚注自动编号
+\section{对偶} % MARK: 对偶
+\says{任何范畴公理的对偶亦是公理... 而只需简单地元数学论证即可得到\textit{对偶原理}. 只要从某个范畴公理可推出某个关于范畴的语句, 那么亦可类似推出其对偶语句.}{Saunders Mac Lane, ``Duality for groups''}{ML50}
+\par 初遇时, 范畴概念起到的主要作用可能看起来仅仅是分类: 向量空间和线性映射定义一个范畴, 流形和光滑函数又定义另一个. 但通过 \ref{Def:Category} 定义的范畴亦作用于自身, 与任何数学定义一致, 这值得进一步考虑. 数学家将目光投向范畴的定义, 以下的观点便即刻示现. 想象态射是从域连到上域的箭头, 可以同时想象将这些箭头的方向翻转. 于是引出下述概念.
+\begin{definition}\label{Def:Opposite.Category}
+    令 \(\cat C\) 为任定范畴. 定义\textbf{反范畴} \(\cat C\op\) 拥有
+    \begin{itemize}
+        \item 与 \(\cat C\) 同样的对象, 及
+        \item 对每个 \(\cat C\) 中的态射 \(f\), 一个交换 \(f\) 的域和上域后的态射 \(f\op\), 即
+        % \footnote{译注: 或许更好的说法:\begin{align*}
+        %     (-)\op\colon\Ob\cat C\times\Ob\cat C&\rightarrow\cat{Map}\\
+        %         (X,Y) &\mapsto\left[\begin{aligned}
+        %             \Hom_\cat C(X,Y)&\leftrightarrow\Hom_{\cat C\op}(Y,X)\\
+        %             f&\mapsto f\op
+        %         \end{aligned}\right].
+        % \end{align*}}
+        \[
+            f\op\colon X\to Y\quad\in\cat C\op\qquad\leftrightsquigarrow\qquad f\colon Y\to X\quad\in\cat C.
+        \]
+    \end{itemize}
+    也就是说, \(\cat C\op\) 拥有和 \(\cat C\) 一致的对象和态射, 区别在于 \squarebrace{将这些箭头的方向翻转}. 范畴 \(\cat C\op\) 的其余性质给出如下:
+    \begin{itemize}
+        \item 对任意对象 \(X\), 态射 \(1_X\op\) 在 \(\cat C\op\) 中保持幺.
+        \item 定义态射复合前注意到态射对 \(f\op,g\op\in\Mor\cat C\op\) 总可复合恰当态射对 \(g,f\in\Mor\cat C\) 可复合, 只需保证 \(g\) 的上域与 \(f\) 的域一致. 定义 \(g\op\cdot f\op\) 作 \((f\cdot g)\op\), 即\[\begin{tikzcd}[
+            ampersand replacement=\&,
+            % column sep=normal,
+            column 1/.style={text width=2.8cm, align=center},
+            column 2/.style={text width=1.2cm, align=center},
+            column 3/.style={text width=0.8cm, align=center},
+            column 4/.style={text width=2.8cm, align=center},
+            column 5/.style={text width=1.2cm, align=center}
+        ]
+            f\op\colon X\to Y, g\op\colon Y\to Z \ar [d, leftrightsquigarrow] \& \in\cat C\op\& \rightsquigarrow \& g\op f\op\colon X\to Z \ar [d, leftrightsquigarrow] \& \in\cat C\op\\
+            g\colon Z\to Y, f\colon Y\to X \& \in\cat C \& \rightsquigarrow\& fg\colon Z\to X \& \in\cat C.
+        \end{tikzcd}\]
+        % TODO: 太丑陋了
+    \end{itemize}
+\end{definition}
+\par 定义 \ref{Def:Opposite.Category} 内的资料构成范畴 \(\cat C\op\), 亦即态射复合律交换且具幺, 当且仅当 \(\cat C\) 构成范畴. 总之,\squarebrace{翻转箭头}或者\squarebrace{交换域和上域}这一行为, 由范畴的公理表现出句法上的自对偶性. 注意, 反范畴拥有和原范畴完全一致的信息. 关于其中一个的问题总可以通过处理另一个来解决.
+\begin{example}
+    \ \par\begin{enumerate}[label=(\roman*)]
+        \item \(\cat{Mat}_R\op\) 作为范畴, 其对象为非零自然数, 而从 \(m\) 到 \(n\) 的态射为以 \(R\) 中的元为值的 \(m\times n\) 阶矩阵. 结论上无非使用者更倾向于哪一面, 定义 \(\cat{Mat}_R\) 时收容之并无任何损失.
+        \item 视预序集 \((\cat P,\le)\) 为范畴时, 其反范畴为拥有态射 \(x\to y\) 的范畴, 当且仅当 \(y\le x\). 例如, \(\mathbbpdf{\omega}\op\) 为由图\[\begin{tikzcd}[ampersand replacement=\&]
+            \cdots \ar[r] \& 3 \ar[r] \& 2 \ar[r] \& 1 \ar[r] \& 0
+        \end{tikzcd}\]自由生成的范畴.
+        \item 若 \(G\) 为群 , 视其为单对象群胚, 范畴 \((\cat BG)\op\cong\cat B(G\op)\) 仍为单对象群胚, 亦因此仍为群. 群 \(G\op\) 称\textbf{反群}, 用于定义右作用为左作用的特殊情况. 见例 \ref{Expl:1.3.9}.
+    \end{enumerate}
+\end{example}
+\par 句法上的对偶对范畴论的发展而言有一个极重要的结果. 任意含有形式\squarebrace{对所有范畴 \(\cat C\) 而言}的全称量词的理论亦必定可用于这些范畴的反范畴. 在对偶背景下介绍这一结果即导出了\textbf{对偶原理}, 根据原始证明的对偶证明, 其中, 所有箭头的方向在在论证中相反出现. 该结果买一送一: 任意范畴论中的证明将同时证明两个定理, 即原始论述及其对偶论述.\footnote{更一般地说, 形如\squarebrace{对任意范畴 \(\cat C_1,\cat C_2,\dots,\cat C_n\) 而论}的陈述, 其证明将实际实现 \(2^n\) 个对偶定理. 在实践中, 并非所有这些陈述与原始陈述有有意义的不同. 例见 \ref{Chpt:4.Sec:3}} 例如, 读者或许已然发现习题 \ref{Exc:1.1.iii} 的两问冗余, 这正是因为陈述 (i) 与 (ii) 对偶, 见习题 \ref{Exc:1.2.i}.
+\par 为于范畴论中阐明对偶原理, 让我们考虑以下结果, 其提供了一个范畴中同构的重要分类手段.
+\begin{lemma}\label{Lem:Posr.Pre.Composition}
+    下述各项等价:\begin{enumerate}[label=(\roman*)]
+        \item \(f\colon x\to y\) 为 \(\cat C\) 中的同构.
+        \item 对任意 \(c\in\Ob\cat C\), 与 \(f\) 后复合定义了一个双射\[f_*\colon\Hom_\cat C(c,x)\to\Hom_\cat C(c,y).\]
+        \item 对任意 \(c\in\Ob\cat C\), 与 \(f\) 前复合定义了一个双射\[f^*\colon\Hom_\cat C(y,c)\to\Hom_\cat C(x,c).\]
+    \end{enumerate}
+\end{lemma}
+\begin{remark}
+    在第 \ref{Chap.2} 章中介绍的语言里, 引理 \ref{Lem:Posr.Pre.Composition} 断言, 局部小范畴中的同构可以集合范畴中的同构的形式代表性地定义. 也就是说, 态射 \(f\colon x\to y\) 在任意局部小范畴 \(\cat C\) 中为同构当且仅当对每个对象 \(c\in\Ob\cat C\)而言, Hom--集之间的后复合函数 \(f_*\colon \Hom_\cat C(c,x)\to\Hom_\cat C(c,y)\) 定义一个 \(\cat{Set}\) 上的同构.
+    \par 在集合论基础中, 允许定义两个大集合间的函数, 此处给出的证明亦可用于非局部小的范畴. 在我们的阐述中, 更小及局部更小的集合论假设将仅当关于所讨论范畴的基本细节时出现.  而此时并非那种情形.
+\end{remark}
+\par\indent{\textbf{引理 \ref{Lem:Posr.Pre.Composition} 的证明.}}\ 我们将证明 (i) \(\Leftrightarrow\) (ii) 等价, 并以对偶总结得到 (i) \(\Leftrightarrow\) (iii).
+\par 假定 (i), 即, 令 \(f\colon x\to y\) 为同构, 逆为 \(g\colon y\to x\), 从而作为范畴态射复合结合律和幺元律的立即应用, \(g\) 的后复合定义作一个 \(f_*\) 的逆函数 \[g_*\colon\Hom_\cat C(c,y)\to\Hom_\cat C(c,x),\]此时, 复合 \[
+    g_*f_*\colon \Hom_\cat C(c,x)\to \Hom_\cat C(c,x)\quad\text{及}\quad f_*g_*\colon\Hom_\cat C(c,y)\to\Hom_\cat C(c,y)    
+\]均为单位函数: 对任意 \(h\colon c\to x\) 与 \(k\colon c\to y\), 有 \(g_*f_*(h)=gfh=h\), 且 \(f_*g_*(k)=fgk=k\).
+\par 反过来说, 假定 (ii), 必存在元 \(g\in\Hom_\cat C(y,x)\), 其在 \(f_*\colon\Hom_\cat C(y,x)\to\Hom_\cat C(y,y)\) 下的像为 \(1_y\). 按其构造有 \(1_y=fg\). 而现在又由态射复合的结合律, 对元 \(gf\), 或者说 \(1_x\), 由在函数 \(f_*\colon\Hom_\cat C(x,x)\to\Hom_\cat C(x,y)\) 下的一般像 \(f\). 从而, \(f\) 和 \(g\)  为逆同构.
+\par 上面已经证明对任意范畴及一定程度上对其反范畴有 (i) \(\Leftrightarrow\) (ii): 也就是说, 范畴 \(\cat C\) 中的态射 \(f\op\colon y\to x\) 为同构当且仅当\begin{equation}\label{Eq:1.2.5}
+    f_*\op\colon\Hom_\cat C(c,y) \to \Hom_\cat C(c,x)\ \text{为同构对所有}\ c\in\Ob\cat C\op.
+\end{equation}
+在 \(\cat C\op\) 的反范畴 \(\cat C\) 中阐释上述资料, 陈述 \ref{Eq:1.2.5} 亦表示相同的数学论断, 即\begin{equation}
+    f^*\colon\Hom_\cat C(y,c)\to\Hom_\cat C(x,c)\ \text{为同构对所有}\ c\in\cat C.
+\end{equation}
+亦即称: \(\Hom_{\cat C\op}(c,x)=\Hom_\cat C(x,c)\), 在 \(\cat C\op\) 中, \(f\op\) 的后复合可对应为在 \(\cat C\) 中 \(f\) 的前复合. 在 \ref{Def:Isomorphism} 中定义的同构概念亦自对偶: \(f\op\colon y\to x\) 为 \(\cat C\op\) 中的同构当且仅当 \(f\colon x\to y\) 为 \(\cat C\) 中的同构. 因而 \(\cat C\op\) 中的等价 (i) \(\Leftrightarrow\) (ii) 亦表征了 \(\cat C\) 中的等价 (i)~\(\Leftrightarrow\)~(iii).\qed
+\par 范畴论中, 对偶原理的 Concise Expositions 可见 \cite{Awo10} 和 \cite{HS97}. 由于我们将会越来越熟练于用对偶处理问题, 对偶证明及 eventually 对偶陈述将不会再向上面这般详尽展开.
+范畴论里的定义亦可对偶, 例如:
+\begin{definition}\label{Def:Mono.Epi.Morphism}
+    范畴中, 态射 \(f\colon x\to y\) 为\begin{enumerate}[label=(\roman*)]
+        \item \textbf{左消态射 (Monomorphism)}, 若对任意平行态射 \(h,k\colon w\rightrightarrows x\), \(fg=fk\) 蕴含 \(h=k\); 或者
+        \item \textbf{右消态射 (Epimorphism)}, 若对任意平行态射 \(h,k\colon y\rightrightarrows z\), \(hf=kf\) 蕴含 \(h=k\).
+    \end{enumerate}
+\end{definition}
+\par 注意到 \(\cat C\) 中的左消/右消态射形式上亦为 \(\cat C\op\) 中的右消/左消态射. 形容词形式上, 说左消态射为\textbf{左消 (monic)} 的, 右消态射为\textbf{右消 (epic)} 的. 画图时, 左消记作\squarebrace{\(\rightarrowtail\)}, 右消记作\squarebrace{\(\Rightarrow\)}.
+\par 下列对偶陈述重述了定义 \ref{Def:Mono.Epi.Morphism}:\begin{enumerate}[label=(\roman*)] % MARK: 双箭头是啥来着
+    \item \(f\colon x\to y\) 为 \(\cat C\) 中的左消态射, 当且仅当对所有对象 \(c\in\Ob\cat C\), \(f\) 的后复合定义一个单射 \(f_*\colon\Hom_\cat C(c,x)\to\Hom_\cat C(c,y)\) .
+    \item \(f\colon x\to y\) 为 \(\cat C\) 中的右消态射, 当且仅当对所有元 \(c\in\Ob\cat C\), \(f\) 的前复合定义一个单射 \(f^*\colon\Hom_\cat C(y,c)\to\Hom_\cat C(x,c)\).
+\end{enumerate}
+\begin{example}
+    给定 \(f\colon X\to Y\) 作为集合范畴中的左消态射. 于是在某种程度上, 给定任两映射 \(x,x'\colon 1\rightrightarrows X\), 其域为单元集, 且有若 \(fx=fx'\) 则 \(x=x'\). 从而左消态射即单射函数. 反过来说, 任意单射函数均可简单地视作左消态射.
+    \par 类似地, 函数 \(f\colon X\to Y\) 为集合范畴中的右消态射当且仅当为满射. 给定函数 \(h,k\colon Y\rightrightarrows Z\), 等式 \(hf=kf\) 即言称 \(h\) 和 \(k\) 在 \(f\) 下的像相同. 这恰蕴含此时 \(h=k\), 其像均属于 \(Y\).
+\end{example}
+\par 因此, 左消态射与右消态射应当视作范畴论高度下的单射与满射函数. 特别地, 设 \(\cat C\) 为对象拥有\squarebrace{基集}的范畴, 所有基于基集间的满射或单射函数的态射均为左消或右消态射, 见习题 \ref{exc:1.6.iii} 作为..... . 不过即使是这样的范畴中, 左消/右消态射的概念亦可更广泛, 这将重提于习题 \ref{Exc:1.6.v}.

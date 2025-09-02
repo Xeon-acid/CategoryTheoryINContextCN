@@ -1,14 +1,22 @@
+\RequirePackage{etoolbox}
+
+
+
 % XeLaTeX 基本设置
-\usepackage{xeCJK}
-\usepackage{fontspec}
-% \setCJKmainfont{SimSun} % 可根据需要更换为其他中文字体
-% \setmainfont{Times New Roman}
+\RequirePackage{xeCJK}
+% \RequirePackage{fontspec}
 
 % 其他常用宏包
-% \usepackage{unicode-math}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\usepackage{hyperref}
+\RequirePackage{unicode-math}
+% \def\vmathbb{\ }
+% 设置西文和数学字体（必须在 unicode-math 之后）
+\setmainfont{CMU Serif} % 设置西文主字体
+\setmathfont{Latin Modern Math} % 设置数学字体，这是关键！
+% \RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{amsthm}
+% \RequirePackage{ntheorem}
+\RequirePackage{geometry}
+\RequirePackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -16,36 +24,47 @@
     urlcolor=blue,
     pdfborder={0 0 0}
 }
-\usepackage{graphicx}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{tocloft}
-\usepackage{pgfplots}
-\usepackage{indentfirst}
-\usepackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{tocloft}
+\RequirePackage{pgfplots}
+\RequirePackage{indentfirst}
+\RequirePackage{tikz}
 \usetikzlibrary{cd}
-\usepackage{pgffor}
-\usepackage{amsfonts}
-\usepackage{newtxmath}
-\usepackage{footnote}
-\usepackage{enumitem}
-\usepackage{float}
-\RequirePackage{etoolbox}
-% \usepackage[mtpbbi]{mtpro2}
-% \usepackage[bbgreekl]{mathbbol}
-% \setmathfontface\mathbbgreek{Some Outline Greek Font}[Scale=MatchUppercase]
-
-
+\RequirePackage{pgffor}
+% \RequirePackage{amsfonts}
+\RequirePackage{footnote}
+\RequirePackage{enumitem}
+\RequirePackage{float}
 % 页面设置
 \geometry{a4paper, left=3cm, right=2.5cm, top=3cm, bottom=3cm}
 
-% 页眉页脚
+% 页眉页脚设置
 \pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\leftmark}
-\fancyhead[LO]{\rightmark}
+\fancyhf{} % 清除所有页眉页脚
+\renewcommand{\headrulewidth}{0pt} % 页眉横线宽度
+\renewcommand{\footrulewidth}{0pt}   % 页脚横线宽度（设为0表示无横线）
+
+
+% 设置页眉
+\fancyhead[RO]{\thepage}     % 单页右上：页码
+\fancyhead[CO]{\leftmark}    % 单页中间：章节
+\fancyhead[LE]{\thepage}     % 双页左上：页码  
+\fancyhead[CE]{\rightmark}   % 双页中间：节
+
+% 清空其他位置
+\fancyhead[RE]{}
+\fancyhead[LO]{}
+
+% 设置章节标记格式
+\renewcommand{\chaptermark}[1]{%
+    \markboth{第 \arabic{chapter} 章\kern2em #1}{}
+}
+\renewcommand{\sectionmark}[1]{%
+    \markright{第 \arabic{section}节\kern1em #1}
+}
+
 
 % 章节标题格式
 \titleformat{\chapter}[hang]{\Huge\bfseries}{第\,\thechapter\,章}{2em}{}
@@ -75,18 +94,20 @@
 % 章节前言
 \newenvironment{says}[3]
 {
+    \par\vspace{2em}
     \hfill%
     \begin{minipage}{.618\linewidth}
         \begin{flushleft}
-            #1%
+            \begin{minipage}{\linewidth} % 添加内部minipage实现自动换行
+                #1%
+            \end{minipage}
         \end{flushleft}
         \hrule
         \begin{flushright}
             #2\cite{#3}%
         \end{flushright}
     \end{minipage}%
-    %
-    \par\vspace{2em}
+    \par\vspace{1em}
 }{
 }
 
@@ -98,33 +119,33 @@
 % }
 
 % \newcommand{\myref}[1]{\S\arabic{chapter}.\arabic{section}~\ref{#1}}
-% \usepackage{refcount}
+% \RequirePackage{refcount}
 
 \newcommand{\chptref}[1]{\S\,\ref*{#1}}
-% \newcommand{\eqref}[1]{(\ref*{#1})}
-
-% \RequirePackage{etoolbox}
-    % 方便地引入数学算子
-% \RequirePackage{foreach}
-
-% \def\mylist{1,2,3,0}
-%  \foreach \x in \mylist {[\x]}
 
 % MARK: 定义运算符列表
-\def\DclrMthOprLst{Ext,Hom,Mor,Ob,End,Aut}
-\DeclareMathOperator{\vP}{\Pi}
 
-\typeout{DclrMthOprLst defined}
-\foreach \x in \DclrMthOprLst {%
-    \expandafter\global\expandafter\edef\csname\x\endcsname{%
-    \noexpand\mathop{\kern0pt \fam0 \x}%
-}
-    % \typeout{\x\space defined}%
-}
+% \DeclareMathOperator{\tProj}{\Pi}
+% \def\DclrMthOprLst{Ext,Hom,Mor,Ob,End,Aut}
+% \typeout{DclrMthOprLst defined}
+% \foreach \x in \DclrMthOprLst {%
+%     \expandafter\global\expandafter\edef\csname\x\endcsname{%
+%     \noexpand\mathop{\kern0pt \fam0 \x}%
+% }
+%     % \typeout{\x\space defined}%
+% }
+\ExplSyntaxOn
+    \clist_set:Nn \l_tmpa_clist {Ext,Hom,Mor,Ob,End,Aut}
+    \clist_map_inline:Nn \l_tmpa_clist 
+    {
+        \cs_gset_protected:cpn {#1} { \mathop{ \kern0pt \mathrm{#1} } }
+    }
+\ExplSyntaxOff
+
 % \typeout{\Ext defined}
 % \DeclareMathOperator\AAA{definition}
 
-\usepackage{relsize}
+\RequirePackage{relsize}
 
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
 
@@ -140,85 +161,6 @@
 
 \pretocmd{\section}{\setcounter{definition}{0}}
 
-
-
-
-% add hook front of \section, hook is : \clearpage
-\let\oldsection\section
-\renewcommand{\section}{\clearpage\oldsection}
-
-% \def\inenvefootnotemark{%
-%     \refstepcounter{footnote}\footnotemark[\arabic{footnote}]\expandafter\let\csname inEnvFootnoteCounter\arabic{footnote}\csname{\arabic{footnote}}
-% }
-
-% \makeatletter
-
-% \newcounter{inenv@markindex}
-% \newcommand{\inenv@markqueue}{}
-
-% \newcommand{\inenvefootnotemark}{%
-%   \refstepcounter{footnote}%
-%   \footnotemark[\number\value{footnote}]%
-%   \ifx\inenv@markqueue\@empty
-%     \xdef\inenv@markqueue{\number\value{footnote}}%
-%   \else
-%     \xdef\inenv@markqueue{\inenv@markqueue,\number\value{footnote}}%
-%   \fi
-% }
-
-% \newcommand{\inenvfootnotetext}[1]{%
-%   \inenv@getnextmark
-%   \ifnum\inenv@currentmark>0
-%     \footnotetext[\inenv@currentmark]{#1}%
-%   \else
-%     \PackageWarning{inenvfootnote}{No more marks available!}%
-%   \fi
-% }
-
-% \newcommand{\inenv@getnextmark}{%
-%   \@ifundefined{inenv@mark@parsed}{\inenv@parsemarks}{}%
-%   \stepcounter{inenv@markindex}%
-%   \@ifundefined{inenv@mark@\roman{inenv@markindex}}
-%     {\def\inenv@currentmark{0}}
-%     {\edef\inenv@currentmark{\csname inenv@mark@\roman{inenv@markindex}\endcsname}}%
-% }
-
-% \newcommand{\inenv@parsemarks}{%
-%   \gdef\inenv@mark@parsed{}%
-%   \@tempcnta=0
-%   \@for\inenv@temp:=\inenv@markqueue\do{%
-%     \advance\@tempcnta by 1
-%     \expandafter\xdef\csname inenv@mark@\romannumeral\@tempcnta\endcsname{\inenv@temp}%
-%   }%
-%   \setcounter{inenv@markindex}{0}%
-% }
-
-% \makeatother
-
-
-% \makeatletter
-% % \IgnoreSpacesOn
-% \tlNew \gFootNoteTl
-% \intNew \gFootNoteInt
-% \prgNewFunction \footNote {m}
-%     {%
-%         \tlPutRight \gFootNoteTl%
-%         {%
-%             \stepcounter{footnote}%
-%             \footnotetext{#1}%
-%         }%
-%         \prgReturn {\footnotemark{}}%
-%     }
-% \AddToHook{env/tblr/before}{%
-%     \intSetEq \gFootNoteInt \c@footnote%
-%     \tlClear \gFootNoteTl%
-%     }
-% \AddToHook{env/tblr/after}{%
-%     \intSetEq \c@footnote \gFootNoteInt%
-%     \tlUse \gFootNoteTl%
-%     }
-% % \IgnoreSpacesOff
-% \makeatother
 
 \newcommand{\cat}[1]{\mathsf{#1}}
 
@@ -240,6 +182,10 @@
     \arabic{chapter}.\arabic{section}.\roman{exercise}
 }
 
+
+
+
+% 设置CJK字体
 \setCJKmainfont{SourceHanSerifSC}[
     Path = C:/Users/angel/AppData/Local/Microsoft/Windows/Fonts/,
     Extension = .otf,
@@ -252,12 +198,24 @@
     ItalicFeatures = {
         Path = C:/Windows/Fonts/,
         Extension = .ttf,
-        % FakeSlant=0.2
     },
     BoldItalicFeatures = {
         Path = C:/Windows/Fonts/,
         Extension = .ttf,
-        FakeBold=1.8  % 可以为粗斜体设置不同的粗体强度
+        FakeBold=1.8
     }
 ]
-\setmainfont{CMU Serif}
+
+% 设置等宽字体（用于代码等）
+\setmonofont{JetBrainsMono-Regular}[
+    Path = C:/Users/angel/AppData/Local/Microsoft/Windows/Fonts/,
+    Scale = 0.9
+]
+% \setmainfont{Computer Modern Serif}
+
+\RequirePackage{titlesec}
+
+% 简单居中
+\titleformat{\section}{\centering\Large\bfseries}{\thesection}{1em}{}
+
+\newcommand{\op}{^{\rm op}}
