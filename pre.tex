@@ -37,6 +37,7 @@
 \RequirePackage{footnote}
 \RequirePackage{enumitem}
 \RequirePackage{float}
+\RequirePackage{extarrows}
 % 页面设置
 \geometry{a4paper, left=3cm, right=2.5cm, top=3cm, bottom=3cm}
 
@@ -81,6 +82,7 @@
 \newtheorem{theorem}{定理}[chapter]
 
 \newtheorem{proposition}{命题}[chapter]
+% \renewtheorem{proof}{证明}[chapter]
 \newtheorem{corollary}{推论}[chapter]
 % \theoremstyle{remark}
 \newtheorem{remark}{注解}[chapter]
@@ -89,6 +91,7 @@
 \theoremstyle{plain}
 \newtheorem{lemma}{引理}[chapter]
 \newcommand{\squarebrace}[1]{「#1」}
+\renewcommand{\proofname}{\kern2em 证明}
 
 \RequirePackage{needspace}
 % 章节前言
@@ -167,7 +170,7 @@
 \let\alias\let
 
 
-\newcommand\mathbbpdf[1]{\special{pdf:literal 1 Tr 0.3 w}#1\special{pdf:literal 0 Tr 0 w}}
+\newcommand\mathbbpdf[1]{\special{pdf:literal 1 Tr 0.2 w}#1\special{pdf:literal 0 Tr 0 w}}
 
 \newcounter{exercise}
 

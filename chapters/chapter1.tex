@@ -67,7 +67,7 @@
         \item \(\cat{Set}_*\) 和 \(\cat{Top}_*\) 以指定基点的集合或拓扑空间为对象, 保持基点的 (连续) 函数为态射.
         \item 群范畴 \(\cat{Group}\) 以群为对象, 群同态为态射. 此例赋予\squarebrace{态射}这一通用术语以抽象范畴的数据. 环范畴 \(\cat{Ring}\) 由交换幺环和环同态构成, 域范畴 \(\cat{Field}\) 由域和域同态构成, 皆有相近定义.
         % \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\mathbbpdf k\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_\mathbbpdf k\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_\mathbb Z\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
-        \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\mathbbpdf k\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_{\mathbbpdf k}\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_{\mathbb Z}\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
+        \item 给定幺环 \(R\) (未必交换), 左 \(R\)--模范畴 \(\cat{Mod}_R\) 由左 \(R\)--模与模同态构成. 当环实为域 \(\mathbbpdf{\mathrm k}\) 时,该范畴进一步为线性空间范畴 \(\cat{Vect}_{\mathbbpdf{\mathrm k}}\); 而为 \(\mathbb Z\) 时进一步为 Abel 范畴 \(\cat{Ab} =\cat{Mod}_{\mathbb Z}\), 因为 \(\mathbb Z\)--模实际就是 Abel 群.
         \item 图范畴 \(\cat{Graph}\) 以图为对象, 以图同态 (将顶点映到顶点, 边映到边, 同时保持连接关系的函数) 为态射. 另有有向图范畴 \(\cat{DirGraph}\), 以有向图为对象, 其边画作箭头, 而态射则为有向图同态, 即必保持边的方向.
         \item 流形范畴 \(\cat{Man}\) 以光滑流形 (即无穷阶可微) 为对象, 光滑映射为态射.
         \item 可测空间范畴 \(\cat{Mea}\) 以可测空间为对象, 可测函数为态射.
@@ -294,8 +294,8 @@
         \item \textbf{右消态射 (Epimorphism)}, 若对任意平行态射 \(h,k\colon y\rightrightarrows z\), \(hf=kf\) 蕴含 \(h=k\).
     \end{enumerate}
 \end{definition}
-\par 注意到 \(\cat C\) 中的左消/右消态射形式上亦为 \(\cat C\op\) 中的右消/左消态射. 形容词形式上, 说左消态射为\textbf{左消 (monic)} 的, 右消态射为\textbf{右消 (epic)} 的. 画图时, 左消记作\squarebrace{\(\rightarrowtail\)}, 右消记作\squarebrace{\(\Rightarrow\)}.
-\par 下列对偶陈述重述了定义 \ref{Def:Mono.Epi.Morphism}:\begin{enumerate}[label=(\roman*)] % MARK: 双箭头是啥来着
+\par 注意到 \(\cat C\) 中的左消/右消态射形式上亦为 \(\cat C\op\) 中的右消/左消态射. 形容词形式上, 说左消态射为\textbf{左消 (monic)} 的, 右消态射为\textbf{右消 (epic)} 的. 画图时, 左消记作\squarebrace{\(\rightarrowtail\)}, 右消记作\squarebrace{\(\twoheadrightarrow\)}.
+\par 下列对偶陈述重述了定义 \ref{Def:Mono.Epi.Morphism}:\begin{enumerate}[label=(\roman*)]
     \item \(f\colon x\to y\) 为 \(\cat C\) 中的左消态射, 当且仅当对所有对象 \(c\in\Ob\cat C\), \(f\) 的后复合定义一个单射 \(f_*\colon\Hom_\cat C(c,x)\to\Hom_\cat C(c,y)\) .
     \item \(f\colon x\to y\) 为 \(\cat C\) 中的右消态射, 当且仅当对所有元 \(c\in\Ob\cat C\), \(f\) 的前复合定义一个单射 \(f^*\colon\Hom_\cat C(y,c)\to\Hom_\cat C(x,c)\).
 \end{enumerate}
@@ -303,4 +303,63 @@
     给定 \(f\colon X\to Y\) 作为集合范畴中的左消态射. 于是在某种程度上, 给定任两映射 \(x,x'\colon 1\rightrightarrows X\), 其域为单元集, 且有若 \(fx=fx'\) 则 \(x=x'\). 从而左消态射即单射函数. 反过来说, 任意单射函数均可简单地视作左消态射.
     \par 类似地, 函数 \(f\colon X\to Y\) 为集合范畴中的右消态射当且仅当为满射. 给定函数 \(h,k\colon Y\rightrightarrows Z\), 等式 \(hf=kf\) 即言称 \(h\) 和 \(k\) 在 \(f\) 下的像相同. 这恰蕴含此时 \(h=k\), 其像均属于 \(Y\).
 \end{example}
-\par 因此, 左消态射与右消态射应当视作范畴论高度下的单射与满射函数. 特别地, 设 \(\cat C\) 为对象拥有\squarebrace{基集}的范畴, 所有基于基集间的满射或单射函数的态射均为左消或右消态射, 见习题 \ref{exc:1.6.iii} 作为..... . 不过即使是这样的范畴中, 左消/右消态射的概念亦可更广泛, 这将重提于习题 \ref{Exc:1.6.v}.
+\par 因此, 左消态射与右消态射应当视作范畴论高度下的单射与满射函数. 特别地, 设 \(\cat C\) 为对象拥有\squarebrace{基集}的范畴, 所有基于基集间的满射或单射函数的态射均为左消或右消态射, 见习题 \ref{exc:1.6.iii} 作为..... . 不过即使是这样的范畴中, 左消/右消态射的概念亦可更广泛, 这将证实于习题 \ref{Exc:1.6.v}.
+\begin{example}
+    给定 \(x\xlongrightarrow{s}y\xlongrightarrow{r}x\) 为满足 \(rs=1_x\) 的态射. 映射 \(s\) 称 \(r\) 的\textbf{切片}或\textbf{右逆}, 而映射 \(r\) 反过来称 \(s\) 的\textbf{收缩}或\textbf{左逆}. 映射 \(s\) 和 \(r\) 将 \(x\) 表示为 \(s\) 的一个\textbf{收缩核}.
+\par 在这种情况下, \(s\) 总为左消态射, 而对偶地, \(r\) 总为右消态射. 承认单边逆存在性后, \(s\) 称\textbf{分裂左消态射}, \(r\) 称\textbf{分裂右消态射}.\footnote{选择公理断言, 集合范畴中每个右消态射均为分裂右消态射.}
+\end{example}
+\begin{example}
+    遵上述记号, 同构必须同时左右消, 但反过来并非总是如此. 例如在环 \(\cat{Ring}\) 中, 嵌入 \(\mathbb Z\hookrightarrow\mathbb Q\) 既左消亦右消, 而该映射非同构: 不存在从 \(\mathbb Q\) 到 \(\mathbb Z\) 的环同态.
+\end{example}
+\par 由于左消态射与右消态射的概念对偶, 其抽象范畴性质亦对偶, 例如下述引理所表.
+\begin{lemma}\label{Lem:1.2.11}
+    \ \par\begin{enumerate}[label=(\roman*)]
+        \item 若 \(f\colon x\rightarrowtail y \) 与 \(g\colon y\rightarrowtail z\) 左消, 则 \(gf\colon x\rightarrowtail z\) 亦左消.
+        \item 若 \(f\colon x\to y\) 与 \(g\colon y\to z\) 使得 \(gf\) 左消, 则 \(f\) 左消.
+    \end{enumerate}对偶地,\begin{enumerate}[label=(\roman*')]
+        \item 若 \(f\colon x\twoheadrightarrow y\) 与 \(g\colon y\twoheadrightarrow z\) 右消, 则 \(gf\colon x\twoheadrightarrow z\) 亦右消.
+        \item 若 \(f\colon x\to y \) 与 \(g\colon y\to z\) 使得 \(gf\) 右消, 则 \(g\) 右消.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    习题 \ref{Exc:1.2.iii}.
+\end{proof}
+\Exercises
+\exercise{%
+    证明 \(\cat C/c\cong(c/(\cat C\op))\op\). 定义 \(\cat C/c\) 作 \((c/(\cat C)\op)\op\), 从习题 \ref{Exc:1.1.iii} 的 (i) 推导 (ii).
+}\exercise{%
+    \ \par\begin{enumerate}[label=(\roman*)]
+        \item 证明, 态射 \(f\colon x\to y\) 为范畴 \(\cat C\) 中的分裂右消态射, 当且仅当对所有 \(c\in\Ob\cat C\), 后复合 \(f_*\colon \Hom_\cat C (c,x)\to\Hom_\cat C(c,y)\) 定义一个满射.
+        \item 由对偶推得, \(f\) 为 \(\cat C\) 中的分裂左消态射, 当且仅当对所有 \(c\in\Ob\cat C\), 前复合 \(f^*\colon \Hom_\cat C (y,c)\to\Hom_\cat C(x,c)\) 为满射.
+    \end{enumerate}
+}\exercise\label{Exc:1.2.iii}{%
+    证明引理 \ref{Lem:1.2.11}, 通过首先证明 (i), (i') 中的一个和 (ii), (ii') 中的一个, 然后分别根据对偶推得另一个. 论证任意范畴中的右消态射定义一个子范畴, 对偶地, 左消态射亦如此.
+}\exercise{%
+    何为域范畴中的左消态射?
+}\exercise{%
+    证明, 嵌入 \(\mathbb Z\hookrightarrow\mathbb Q\) 在环范畴 \(\cat{Ring}\) 中同时左右消. 论证同时左右消的映射未必同构.
+}\exercise{%
+    证明, 左消且分裂右消的态射必为同构. 对偶论证, 右消且分裂左消亦必为同构.
+}\exercise{%
+    视 \((\cat P,\le)\) 作范畴,  如此定义对象 \(A\in\Ob\cat P\) 的子总体的上确界, 而后对偶定义下确界. 证明对象子集上确界若存在则必唯一, 对偶情形亦如此.
+}
+
+\section{函子性}\label{Sec:Functoriality} % MARK: 函子性
+\says{... 每个足够好的类比均指向一个函子.}{ John Baez, ``Quantum Quandaries: A
+ Category-Theoretic Perspective''}{Bae06}
+ \par 范畴论中有一个关键信条, 其直接催生了范畴的定义, 即, 任何数学对象均应与其携带的结构保持态射一同考虑. 于 ``General theory of natural equivalences'' \ref{EM45} 中, Eilenberge 和 Mac Lane 考虑得更远:\begin{quote}
+    每当新的抽象对象以一种特定方式构造产生于已有结构, 总建议视其上相对应的诱导映射为其定义的组分之一.
+ \end{quote}
+ 范畴本身亦是数学对象, 尽管我们对此不甚熟悉, 但这引出一个问题: 何为范畴\textbf{间的}态射?
+ \begin{definition}
+    范畴 \(\cat C\) 和 \(\cat D\) 之间的\textbf{函子 (functor)} \(F\colon\cat C\to\cat D\) 含如下资料:
+    \begin{itemize}
+        \item 对每个对象 \(c\in\Ob\cat C\) 有 \(Fc\in\Ob\cat D\).
+        \item 对每个 \(f\in\Hom_\cat C(c,c')\) 有 \(Ff\in\Hom_\cat D(Fc,Fc')\), 使得 \(Ff\) 的域和上域分别等于 \(f\) 的域和上域在 \(F\) 下的像.
+    \end{itemize}
+    上述陈述要求满足如下两条\textbf{函子性公理}:
+    \begin{itemize}
+        \item 对任意可复合的对 \(f,g\in\Mor\cat C\), 有 \(Fg\cdot Ff=F(g\cdot f)\).
+        \item 对任意对象 \(c\in\Ob\cat C\), 有 \(F(1_c)=1_{Fc}\).
+    \end{itemize}
+ \end{definition}
