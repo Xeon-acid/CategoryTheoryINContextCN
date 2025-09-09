@@ -78,8 +78,7 @@
 \end{example}
 \par 上述即\textit{具体范畴 (concrete category)} 的全部例子, 即对象基于集合, 而态射为这些对象背后的集合间的函数, 尤其是\squarebrace{结构保持}态射. 具体范畴有一个更精确的定义, 于 \ref{114417} 给出. 此外, \squarebrace{抽象}范畴亦很广泛:
 \begin{example}\label{Expl:Abstract.Category}
-    \ \par
-    \begin{enumerate}[label={(\roman*)}, ref = {(\roman*)}]
+    \ \begin{enumerate}[label={(\roman*)}, ref = {(\roman*)}]
         \item 给定幺环 \(R\), 范畴 \(\cat{Mat}_R\) 以正整数为对象, 而其从 \(n\) 到 \(m\) 的态射集为值在 \(R\) 中的那些 \(m\times n\) 矩阵构成的集. 态射复合由矩阵乘法\[
             n\xrightarrow{A}m,\quad m\xrightarrow{B}k\qquad\rightsquigarrow\qquad n\xrightarrow{B\cdot A} k
         \]
@@ -121,7 +120,7 @@
             \item \(\cat{Measure}\) 以可测空间为对象. 而态射选择为可测函数的等价类, 使得平行的一对函数等价, 当其域的差异为零测集.
     \end{enumerate}
 \end{example}
-\par 上述种种, 道尽范畴论之哲学. 例 \ref{Expl:Concrete.Category} 所陈范畴表明数学对象理应连带期间的态射一起探讨, 而列诸 \ref{Expl:Abstract.Category} 者, 又说明态射并非总是函数.\footnote{Reid 的 \textit{Undergraduate algebraic geometry} (《本科代数几何》) 强调, 态射并非总为函数, 原文\cite{Rei88}:\begin{quote}
+\par 上述种种, 道尽范畴论之哲学. 例 \ref{Expl:Concrete.Category} 所陈范畴表明数学对象理应连带期间的态射一起探讨, 而列诸 \ref{Expl:Abstract.Category} 者, 又说明态射并非总是函数.\footnote{Reid 的 \textit{Undergraduate algebraic geometry} (《本科代数几何》) 强调, 态射并非总为函数, 原文\cite[p. 4]{Rei88}:\begin{quote}
     \squarebrace{不认可该点的学生建议立即放弃, 转而修读一门范畴论阅读课程.}
 \end{quote}} 范畴的态射亦称\textbf{箭头}或\textbf{映射}, 尤其是在例 \ref{Expl:Concrete.Category} 或 \ref{Expl:Abstract.Category} 的背景下.
 \begin{remark}
@@ -156,8 +155,7 @@
     \par \textbf{自态射 (endomorphism)} 即域与上域相同的态射, 而同构的自态射即称\textbf{自同构 (automorphism)}.
 \end{definition}
 \begin{example}\label{Expl:Isomorphism}
-    \ \par
-    \begin{enumerate}[label=(\roman*)]
+    \ \begin{enumerate}[label=(\roman*)]
         \item \(\cat{Set}\) 中, 同构即\textbf{双射}.
         \item \(\cat{Group}\), \(\cat{Ring}\), \(\cat{Field}\), \(\cat{Mod}_R\) 中, 同构即双射同态.
         \item \(\cat{Top}\) 中, 同构即 \textbf{同胚 (homeomorphism)}, 即具连续逆的连续函数, 这一性质强于仅为双射连续函数.
@@ -166,14 +164,13 @@
     \end{enumerate}
 \end{example}
 \par 由例 \ref{Expl:Isomorphism} 的 (ii) 和 (iii) 有下述一般问题: 指定范畴, 同构何时恰为诱导底层集间双射的映射? 引理 \ref{Lemma:5.6.1} 将给出回答.
-\begin{definition}
+\begin{definition}\label{Def:Groupoid}
     \textbf{群胚 (groupoid)} 为范畴, 其中全部态射均为同构.
 \end{definition}
 \begin{example}
-    \ \par
-    \begin{enumerate}[label=(\roman*)]
+    \ \begin{enumerate}[label=(\roman*)]
         \item \textbf{群}即仅一个对象的群胚.\footnote{这并非仅为示例, 亦是其定义.\footnotemark}\footnotetext{译注: 群 \(G\) 作为群胚, 唯一对象 \(*\), 态射类即 \(G=(\Hom(*,*),\circ)\), 其中 \(\circ\) 即态射复合, 易证封闭性、结合性、幺元存在 (即 \(1_*\))、逆元存在 (作为同构, 总存在逆态射). 另, \href{Sec:Functor}{函子} \(F\colon\cat BG\to\cat{Set}\) 恰好等价于 \(G\) 在 \(X\) 上的左作用, 将抽象对象 \(*\) 映到具体集合 \(X\).}
-        \item 给定空间 \(X\), 其\textbf{基本群胚 (fundamental groupoid)} \(\Pi _1(X)\) 作为范畴, 以 \(X\) 上的点为对象, 以路径的终点保持同伦类为态射.
+        \item\label{Expl:Fundamental.Groupoid.FOR.Topological.Space} 给定空间 \(X\), 其\textbf{基本群胚 (fundamental groupoid)} \(\Pi _1(X)\) 作为范畴, 以 \(X\) 上的点为对象, 以路径的终点保持同伦类为态射.
     \end{enumerate}
 \end{example}
 \par 范畴 \(\cat C\) 的\textbf{子范畴 (subcategory)} 定义作对象子总体与态射子总体, 使得任意限制进 \(\cat D\) 的态射均仍能在其中找到域与上域, 亦能找到所有必需的恒等态射, 以及所有必需的态射复合. 例如存在子范畴 \(\cat{CRing}\subset\cat\cat{Ring}\), 即交换幺环范畴. 上述两范畴均含于 \(\cat{Rng}\),  一般的环范畴.
@@ -253,7 +250,7 @@
 \end{definition}
 \par 定义 \ref{Def:Opposite.Category} 内的资料构成范畴 \(\cat C\op\), 亦即态射复合律交换且具幺, 当且仅当 \(\cat C\) 构成范畴. 总之,\squarebrace{翻转箭头}或者\squarebrace{交换域和上域}这一行为, 由范畴的公理表现出句法上的自对偶性. 注意, 反范畴拥有和原范畴完全一致的信息. 关于其中一个的问题总可以通过处理另一个来解决.
 \begin{example}
-    \ \par\begin{enumerate}[label=(\roman*)]
+    \ \begin{enumerate}[label=(\roman*)]
         \item \(\cat{Mat}_R\op\) 作为范畴, 其对象为非零自然数, 而从 \(m\) 到 \(n\) 的态射为以 \(R\) 中的元为值的 \(m\times n\) 阶矩阵. 结论上无非使用者更倾向于哪一面, 定义 \(\cat{Mat}_R\) 时收容之并无任何损失.
         \item 视预序集 \((\cat P,\le)\) 为范畴时, 其反范畴为拥有态射 \(x\to y\) 的范畴, 当且仅当 \(y\le x\). 例如, \(\mathbbpdf{\omega}\op\) 为由图\[\begin{tikzcd}[ampersand replacement=\&]
             \cdots \ar[r] \& 3 \ar[r] \& 2 \ar[r] \& 1 \ar[r] \& 0
@@ -313,7 +310,7 @@
 \end{example}
 \par 由于左消态射与右消态射的概念对偶, 其抽象范畴性质亦对偶, 例如下述引理所表.
 \begin{lemma}\label{Lem:1.2.11}
-    \ \par\begin{enumerate}[label=(\roman*)]
+    \ \begin{enumerate}[label=(\roman*)]
         \item 若 \(f\colon x\rightarrowtail y \) 与 \(g\colon y\rightarrowtail z\) 左消, 则 \(gf\colon x\rightarrowtail z\) 亦左消.
         \item 若 \(f\colon x\to y\) 与 \(g\colon y\to z\) 使得 \(gf\) 左消, 则 \(f\) 左消.
     \end{enumerate}对偶地,\begin{enumerate}[label=(\roman*')]
@@ -328,7 +325,7 @@
 \exercise{%
     证明 \(\cat C/c\cong(c/(\cat C\op))\op\). 定义 \(\cat C/c\) 作 \((c/(\cat C)\op)\op\), 从习题 \ref{Exc:1.1.iii} 的 (i) 推导 (ii).
 }\exercise{%
-    \ \par\begin{enumerate}[label=(\roman*)]
+    \ \begin{enumerate}[label=(\roman*)]
         \item 证明, 态射 \(f\colon x\to y\) 为范畴 \(\cat C\) 中的分裂右消态射, 当且仅当对所有 \(c\in\Ob\cat C\), 后复合 \(f_*\colon \Hom_\cat C (c,x)\to\Hom_\cat C(c,y)\) 定义一个满射.
         \item 由对偶推得, \(f\) 为 \(\cat C\) 中的分裂左消态射, 当且仅当对所有 \(c\in\Ob\cat C\), 前复合 \(f^*\colon \Hom_\cat C (y,c)\to\Hom_\cat C(x,c)\) 为满射.
     \end{enumerate}
@@ -346,12 +343,12 @@
 
 \section{函子性}\label{Sec:Functoriality} % MARK: 函子性
 \says{... 每个足够好的类比均指向一个函子.}{ John Baez, ``Quantum Quandaries: A
- Category-Theoretic Perspective''}{Bae06}
- \par 范畴论中有一个关键信条, 其直接催生了范畴的定义, 即, 任何数学对象均应与其携带的结构保持态射一同考虑. 于 ``General theory of natural equivalences'' \ref{EM45} 中, Eilenberge 和 Mac Lane 考虑得更远:\begin{quote}
+Category-Theoretic Perspective''}{Bae06}
+\par 范畴论中有一个关键信条, 其直接催生了范畴的定义, 即, 任何数学对象均应与其携带的结构保持态射一同考虑. 于 ``General theory of natural equivalences'' \ref{EM45} 中, Eilenberge 和 Mac Lane 考虑得更远:\begin{quote}
     每当新的抽象对象以一种特定方式构造产生于已有结构, 总建议视其上相对应的诱导映射为其定义的组分之一.
- \end{quote}
- 范畴本身亦是数学对象, 尽管我们对此不甚熟悉, 但这引出一个问题: 何为范畴\textbf{间的}态射?
- \begin{definition}
+\end{quote}
+范畴本身亦是数学对象, 尽管我们对此不甚熟悉, 但这引出一个问题: 何为范畴\textbf{间的}态射?
+\begin{definition}
     范畴 \(\cat C\) 和 \(\cat D\) 之间的\textbf{函子 (functor)} \(F\colon\cat C\to\cat D\) 含如下资料:
     \begin{itemize}
         \item 对每个对象 \(c\in\Ob\cat C\) 有 \(Fc\in\Ob\cat D\).
@@ -362,4 +359,53 @@
         \item 对任意可复合的对 \(f,g\in\Mor\cat C\), 有 \(Fg\cdot Ff=F(g\cdot f)\).
         \item 对任意对象 \(c\in\Ob\cat C\), 有 \(F(1_c)=1_{Fc}\).
     \end{itemize}
- \end{definition}
+\end{definition}
+\par 简而言之, 函子包含对象的映射和态射的映射,并保持所有范畴中的结构, 亦即域、上域、复合、单位.\footnote{尽管函子应视作从一个范畴的资料到另一个范畴的资料的映射, 但除非为了辨明符号, 否则应当尽量少用括号.}
+\begin{example}
+    \ \begin{enumerate}[label=(\roman*)]
+        \item 存在自函子\footnote{\textbf{自函子}即域和上域相同的函子.} \(\mathscr P\colon\cat{Set}\to\cat{Set}\) 递送集合 \(A\) 至其幂集 \(\mathscr P(A)=\{a\colon a\subseteq A\}\), 递送函数 \(f\colon A\to B\) 至直像函数 \(f_*\colon\mathscr P(A)\to\mathscr P(B)\), 该函数递送 \(a\subset A\) 至 \(f(a)\subset B\).
+        \item 每一例诸 \ref{Expl:Concrete.Category} 的范畴均具\textbf{遗忘函子}. 这一形式用于指称所有那些遗忘范畴结构的函子, 其上域为集合范畴. 例如 \(U\colon\cat{Group}\to\cat{Set}\) 递送群至其基集, 递送群同态至其基函数. 函子 \(U\colon\cat{Top}\to\cat{Set}\) 递送拓扑空间至该空间基于的点集. 存在两个自然的遗忘函子 \(V,E\colon\cat{Graph}\rightrightarrows\cat{Set}\), 分别递送图至其顶点或边; 如果需要的话, 二者亦可组合起来定义一个函子 \(V\sqcup E\colon\cat{Graph}\to\cat{Set}\), 递送图至其顶点与边的无交并. 这些映射均具函子性, 因为在每个例子中, 作为域的范畴中的态射总基于一个集合中的函数.
+        \item 存在中间遗忘函子于 \(\cat{Mod}_R\to\cat{Ab}\) 和 \(\cat{Ring}\to\cat{Ab}\), 遗忘一部分但并非全部代数结构。 嵌入函子 \(\cat{Ab}\hookrightarrow\cat{Group}\) 与 \(\cat{Field}\hookrightarrow\cat{Ring}\) 亦视作\squarebrace{遗忘函子}. 需要注意, 后两者而非前两者, 对对象而言为单射: 群要么交换, 要么不, 但 Abel 群可能以多个方式接受环的结构.
+        \item 类似地, 存在遗忘函子 \(\cat{Group}\to\cat{Set}_*\) 和 \(\cat{Ring}\to\cat{Set}_*\), 分别递送幺元和零元至基点. 上述投射具函子性, 因为群同态和环同态必然保持其元.
+        \item 存在函子 \(\cat{Top}\to\cat{Htpy}\) 和 \(\cat{Top}_*\to\cat{Htpy}_*\), 以恒等作用于对象, 而递送一个 (带基点的) 连续函数至其同伦类.
+        \item \textit{基本群}定义函子 \(\pi_1\colon\cat{Top}_*\to\cat{Group}\), 递送基空间上的连续函数 \(f\colon (X,x)\to(Y,y)\) 至群同态 \(f_*\colon\pi_1(X,x)\to\pi_1(Y,y)\), 且上书陈述具函子性, 满足前述的两个函子性公理. 语句\squarebrace{基本群为同论不变量}的精确陈述是, 该函子通过函子 \(\cat{Top}_*\to\cat{Htpy}_*\) 分解定义一个函子 \(\pi_1\colon\cat{Htpy}_*\to\cat{Group}\).
+        \item 相关函子 \(\Pi_1\colon\cat{Top}\to\cat{Groupoid}\) 为无基拓扑空间分配其基本群胚, 该范畴定义于例 \href{Expl:Fundamental.Groupoid.FOR.Topological.Space}{1.1.12(ii)}. 连续函数 \(f\colon X\to Y\) 诱导一个函子 \(f_*\colon\Pi_1(X)\to \Pi_1(Y)\), 将点 \(x\in X\) 递送至点 \(f(x)\in Y\). 这一映射扩张至 \(\Pi_1(X)\) 中的态射, 因为连续函数保持路径与路径同伦类.
+        \item 对任意 \(n\in\mathbb Z\), 总存在函子 \(Z_n,B_n,H_n\colon\cat{Ch}_R\to\cat{Mod}_R\). 函子 \(Z_n\) 计算由 \(Z_nC_\bullet=\Ker(d\colon C_n\to C_{n-1})\) 定义的 \textbf{\(n\)--闭链}. 函子 \(B_n\) 计算由 \(B_n C_\bullet=\Img(d\colon C_{n+1}\to C_n)\) 定义的 \textbf{\(n\)--边缘}. 而函子 \(H_n\) 计算\textbf{第 \(n\) 同调} \(H_nC_\bullet := Z_nC_\bullet B_nC_\bullet\). 请读者自证上述三者均具函子性. 同时考虑全部维度, 闭链、边缘、同调函子分别从链复形范畴到分次 \(R\)--模范畴组成了函子 \(Z_*,B_*,H_*\colon\cat{Ch}_R\to\cat{GrMod}_R\). 拓扑空间的奇异同调通过适宜的函子 \(\cat{Top}\to\cat{Ch}_R\) 预合成 \(H_*\) 定义.
+        \item 存在函子 \(F\colon\cat{Set}\to\cat{Group}\), 递送集合 \(X\) 至其上的\textbf{自由群}, 元素为以 \(x\in X\) 或其逆 \(x^{-1}\) 为字母的有限 ``字'', 模去一个等价关系, 使 \(xx^{-1}\) 和 \(x^{-1}x\) 等价于空字. 乘法法则即拼接字, 此时, 空字保持乘法幺. 这是 ``自由'' 函子大族的一例, 将于第 \ref{Chap.4} 章探讨.
+        \item 链式法则表征了导数的函子性. 令 \(\cat{Euclid}_*\) 表示范畴, 其对象为带基点的有限维 Euclid 空间 \((\mathbb R^n,a)\) (或者更应该说, 其中的开子集), 而其态射为带基点的可微函数. \textbf{全导数} \(f\colon\mathbb R^n\to\mathbb R^m\) 计算于指定基点 \(a\in\mathbb R^n\), 引出一个矩阵, 称 \textbf{Jacobi 矩阵}, 定义了 \(f\) 于点 \(a\) 的方向导数. 给定 \(f\) 为复合函数 \(f_1\circ\cdots\circ f_m\colon \mathbb R^n\to\mathbb R\), 矩阵的 \((i,j)\) 项即 \(\dfrac{\partial}{\partial\,x_j}f_i(a)\). 这定义态射上的作用为函子 \(D\colon\cat{Euclid}_*\to\cat{Mat}_{\mathbb R}\); 对对象来说, \(D\) 为带基点的 Euclid 空间分配其维数. 给定 \(g\colon\mathbb R^m\to\mathbb R^k\), 递送指定基点 \(f(a)\in\mathbb R^m\) 至 \(gf(a)\in\mathbb R^k\), 而 \(D\) 的函子性断言, \(f\) 于 \(a\) 处的 Jacobi 矩阵和 \(g\) 在 \(f(a)\) 处的 Jacobi 矩阵的积等于 \(gf\) 在 \(a\) 处的 Jacobi 矩阵. 此即多元微积分的链式法则.\footnote{从更复杂的角度考虑, 导数定义了从 \(\cat{Man}\) 范畴至实向量空间范畴的函子态射上的作用, 将尖流行送入其切空间.}
+        \item 任意交换幺半群 \(M\) 均可用于定义函子 \(M^-\colon\cat{Fin}_*\to\cat{Set}\). 对含 \(n\) 个非基点元的集合, 记有 \(n+\in\cat{Fin}_*\), 定义 \(M^{n_+}\) 为 \(M^n\), 集合 \(M\) 与自身的 \(n\) 重 Descartes 积. 依惯例, \(M^{0_+}\) 为单元素集: 对任意基映射 \(f\colon m_+\to n+\), 定义对应函数 \(M^f\colon M^m\to M^n\) 的第 \(i\) 复合为
+        % TODO: 还没写完
+    \end{enumerate}
+\end{example}
+\par 更多函子的例子将很快出现, 但首先让我们阐明, 知晓分配数学对象于一种形式至另一种形式\textit{具函子性}大有裨益. 应用基本群构造 \(\pi_1\colon\cat{Top}_8\to\cat{Group}\) 的函子性, 可证明:
+\begin{theorem}[Brouwer 不动点定理]
+    任意 2 维盘 \(D^2\) 的连续自同态均具不动点.
+\end{theorem}
+\begin{proof}
+    假定 \(f\colon D^2\to D^2\) 满足对任意 \(x\in D^2\), 均有 \(f(x)\ne x\), 存在连续函数 \(r\colon D^2\to S^1\), 递送点 \(x\in D^2\) 至从 \(f(x)\) 到 \(x\) 的射线与边界盘 \(S^1\) 的交点. 注意到函数 \(r\) 使边界 \(S^1\subset D^2\) 上的点不动. 因而, \(r\) 定义了嵌入 \(i\colon S^1\hookrightarrow D^2\) 的收缩, 亦即, 复合 \(S^1\xrightarrow{i}D^2\xrightarrow{r}S^1\) 为单位态射.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw [name path=circle] (0,0) circle [radius=30pt];
+            \fill (-0.2,-0.3) circle [radius=2pt, fill=black] node[above]{$f(x)$};
+            \fill (0.5,0) circle [radius=2pt, fill=black] node[above]{\(x\)};
+            \coordinate (fx) at(-0.2,-0.3);
+            \coordinate (x) at(0.5,0);
+            \draw[->, name path = ray] (fx) -- ($(fx)!3!(x)$);
+            \fill[ fill=black, name intersections={of=circle and ray}] (intersection-1) circle (2pt) node [below right] {\(r(x)\)};
+        \end{tikzpicture}
+    \end{figure}
+    \par 选定边界 \(S^1\) 上的任意基点,应用函子 \(\pi_1\) 以获取可复合群同态对:\[
+        \pi_1(S^1)\xrightarrow{\pi_1(i)}\pi_1(D^2)\xrightarrow{\pi_1(r)}\pi_1(S^1).
+    \]由函子性公理, 必有\[
+        \pi_1(r)\cdot\pi_1(i)=\pi_1(ri)=\pi_1(1_{S^1})=1_{\pi_1(S^1)}.
+    \]然而设计覆盖空间的计算表明 \(\pi_1(S^1)=\mathbb Z\), 且 \(\pi_1(D^2)=0\), 也就是平凡群. \(\mathbb Z\) 的复合自同态 \(\pi_1(r)\cdot\pi_1(i)\) 必为零, 因其分解以平凡群. 因此, 其不可等于单位同态, 后者递送生成元 \(1\in\mathbb Z\) 至其自身 (\(0\ne1\)). 上述矛盾即证收缩 \(r\) 不可存在, 从而 \(f\) 必有不动点.\footnote{相同陈述, 使用 \(\pi_1\) 平面中的 第 \(n\) 同调群函子 \(\pi_n\colon\cat{Top}_*\to\cat{Group}\), 可证任意  \(n\) 维圆盘上的连续自同态均存在不动点.}
+\end{proof}
+\par 函子性亦发挥关键作用于拓扑数据分析这一新兴领域.
+\begin{example}[寻找聚类函子]
+    \textit{聚类算法 (Clustering algorithm)} 为函数, 转换有限度量空间至其点的划分, 并划分为 ``聚类'' 集. Kleinberg 不可能定理证明, 不存在此般聚类算法, 使其满足三个合理公理 \cite{Kle03}.\footnote{即, 不存在此般聚类算法, 使其在刚性缩放下不变、在距离函数 ``锐化'' 点簇的情况下一致、且满足: 存在某距离函数实现任意可能划分.} Carlsson 和 M\'emoli  的一个关键见解是, 这些公理能够编码至有限度量空间范畴内的态射, 此时, 所期望的并非聚类函数, 而是到达合适范畴的聚类函子 \cite{CM13}. Ghrist 的 \textit{Elementary Applied Topology} \cite[p. 216]{Ghr14} 描述这一变动如下:
+    \begin{quote}
+        如此有何好处? 范畴论被批评作深奥的语言: 讨论机器规范, 但却没有任何结果. \textit{并非如此.}\footnote{他强调.} 函子方式重表述 [Kleinberg 的] 定理 (否定定理), 优点在于, 这一道路能够更清晰地通往积极表述. 若目标是拥有聚类理论; 若聚类严格来说是函子; 若不存在非平凡函子于待探讨范畴间; 那么自然地, 解决方案即改变作为域与上域的范畴, 并分类随即而来的函子. 其中一例更改即考虑持久簇范畴.
+    \end{quote}
+\end{example}
+\par 于 \cite{CM13} 中考虑的范畴对为: \(\cat{FinMetric}\), 有限度量空间与距离非增函数; \(\cat{Cluster}\), 簇和细化. 

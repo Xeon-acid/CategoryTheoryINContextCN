@@ -31,7 +31,7 @@
 \RequirePackage{pgfplots}
 \RequirePackage{indentfirst}
 \RequirePackage{tikz}
-\usetikzlibrary{cd}
+\usetikzlibrary{cd,calc,intersections}
 \RequirePackage{pgffor}
 % \RequirePackage{amsfonts}
 \RequirePackage{footnote}
@@ -137,8 +137,9 @@
 % }
 %     % \typeout{\x\space defined}%
 % }
+\DeclareMathOperator{\Img}{Im}
 \ExplSyntaxOn
-    \clist_set:Nn \l_tmpa_clist {Ext,Hom,Mor,Ob,End,Aut}
+    \clist_set:Nn \l_tmpa_clist {Ext,Hom,Mor,Ob,End,Aut,Ker,Im}
     \clist_map_inline:Nn \l_tmpa_clist 
     {
         \cs_gset_protected:cpn {#1} { \mathop{ \kern0pt \mathrm{#1} } }
@@ -156,11 +157,13 @@
 \renewcommand{\theremark}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
 \renewcommand{\theexample}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
 \renewcommand{\thelemma}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
+\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
 
 \AtBeginEnvironment{example}{\protect\refstepcounter{definition}}
 \AtBeginEnvironment{remark}{\protect\refstepcounter{definition}}
 \AtBeginEnvironment{lemma}{\protect\refstepcounter{definition}}
 \AtBeginEnvironment{equation}{\protect\refstepcounter{definition}}
+\AtBeginEnvironment{theorem}{\protect\refstepcounter{definition}}
 
 \pretocmd{\section}{\setcounter{definition}{0}}
 
